@@ -14,9 +14,13 @@ namespace IdentityTraining.Controllers
         //Identity kütüphanesine ait , veritabanına erişmek için kullandığımız bir classtır
         private readonly UserManager<AppUser> _userManager;
 
-        public HomeController(UserManager<AppUser> userManager) //Dependency Injection yapıyorum
+        //Identity kutuphanesine ait login işlemlerini yöneteceğimiz class
+        private readonly SignInManager<AppUser> _signInManager;
+
+        public HomeController(UserManager<AppUser> userManager, SignInManager<AppUser> _signInManager) //Dependency Injection yapıyorum
         {
             this._userManager = userManager;
+            this._signInManager = _signInManager;
         }
 
         public IActionResult Index()
@@ -27,11 +31,17 @@ namespace IdentityTraining.Controllers
 
 
         [HttpPost]
-        public IActionResult LogIn(SignInViewModel model)
+        public async Task<IActionResult> LogIn(SignInViewModel model)
         {
             if (ModelState.IsValid)
             {
+               var result=await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false); //Son iki parametre kullanıyı hatırlayayım mı ve sürekli yanlış girerse bloklayayım mı?
 
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index","Panel");
+                }
+                ModelState.AddModelError("","Kullanıcı adı veya şifre hatalı");
             }
             return RedirectToAction("Index",model);
         }
