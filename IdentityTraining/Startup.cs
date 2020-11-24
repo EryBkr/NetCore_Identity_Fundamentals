@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IdentityTraining.Context;
+using IdentityTraining.CustomValidator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +32,7 @@ namespace IdentityTraining
                 opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);//Belli bir sayýda yanlýþ girilme durumunda 10 dakikalýðýna kiþiyi kitliyoruz
                 opt.Lockout.MaxFailedAccessAttempts = 3;//3 kere yanlýþ giriþ yapýlýrsa lockOut durumuna düþer
 
-            }).AddEntityFrameworkStores<IdentityContext>();
+            }).AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<IdentityContext>();//Custom Identity hatalarýmýzý görüntülemek için konfigürasyona ekledik
 
             services.ConfigureApplicationCookie(opt =>
             {
