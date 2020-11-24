@@ -25,6 +25,17 @@ namespace IdentityTraining.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public IActionResult LogIn(SignInViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return RedirectToAction("Index",model);
+        }
+
         public IActionResult Register()
         {
             return View();
