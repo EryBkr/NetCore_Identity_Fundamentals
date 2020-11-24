@@ -19,7 +19,17 @@ namespace IdentityTraining
         {
             services.AddControllersWithViews(); //MVC yapýsý Eklendi
             services.AddDbContext<IdentityContext>();//Database eklendi
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<IdentityContext>();//Identity kütüphanesini ayaða kaldýrdýk
+            
+            //Identity kütüphanesini ayaða kaldýrdýk
+            services.AddIdentity<AppUser, AppRole>(opt=> { //Bu kýsýmda konfigürasyon ayarlarýmýzý yapýyoruz
+
+                opt.Password.RequireDigit = false; //Sayý olma zorunluluðunu kaldýrdýk
+                opt.Password.RequireLowercase = false; //Küçük harf zorunluluðunu kaldýrdýk
+                opt.Password.RequiredLength = 1;//Karakter sayýsýný düþürdük
+                opt.Password.RequireNonAlphanumeric = false;//özel karakter zorunluluðu kaldýrýldý
+                opt.Password.RequireUppercase = false;
+
+            }).AddEntityFrameworkStores<IdentityContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

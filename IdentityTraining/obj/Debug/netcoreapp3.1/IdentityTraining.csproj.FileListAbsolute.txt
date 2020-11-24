@@ -149,4 +149,3 @@ C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTrain
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.Views.pdb
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register.cshtml.g.cs
-C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.csprojAssemblyReference.cache
