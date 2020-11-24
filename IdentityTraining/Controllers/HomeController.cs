@@ -35,7 +35,7 @@ namespace IdentityTraining.Controllers
         {
             if (ModelState.IsValid)
             {
-               var result=await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false); //Son iki parametre kullanıyı hatırlayayım mı ve sürekli yanlış girerse bloklayayım mı?
+               var result=await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false); //Son iki parametre kullanıyı hatırlayayım mı ve sürekli yanlış girerse bloklayayım mı?
 
                 if (result.Succeeded)
                 {

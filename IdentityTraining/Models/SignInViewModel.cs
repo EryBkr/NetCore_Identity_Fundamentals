@@ -15,5 +15,7 @@ namespace IdentityTraining.Models
         [Display(Name = "Şifre:")]
         [Required(ErrorMessage = "Şifre boş olamaz")]
         public string Password { get; set; }
+
+        public bool RememberMe { get; set; }
     }
 }

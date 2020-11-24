@@ -30,6 +30,14 @@ namespace IdentityTraining
                 opt.Password.RequireUppercase = false;
 
             }).AddEntityFrameworkStores<IdentityContext>();
+
+            services.ConfigureApplicationCookie(opt=> 
+            {
+                opt.Cookie.HttpOnly = true;//JS Cookie bilgilerine ulaþamaz
+                opt.Cookie.Name = "MyCookie";
+                opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;//Http ya Https üzerinden çalýþýr
+                opt.ExpireTimeSpan = TimeSpan.FromDays(20); //Cookie kaç gün ayakta kalsýn
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
