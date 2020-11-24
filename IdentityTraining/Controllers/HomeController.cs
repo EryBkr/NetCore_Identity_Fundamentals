@@ -35,7 +35,18 @@ namespace IdentityTraining.Controllers
         {
             if (ModelState.IsValid)
             {
-               var result=await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false); //Son iki parametre kullanıyı hatırlayayım mı ve sürekli yanlış girerse bloklayayım mı?
+               var result=await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, true); //Son iki parametre kullanıyı hatırlayayım mı ve sürekli yanlış girerse bloklayayım mı? Access Failed kolonundan bu durumu görüntüleyebiliriz,LogOutEnd kısmından ise ne kadar kilitli kalacağını görüntüleyebiliriz
+
+                if (result.IsLockedOut)
+                {
+                    var yanlisGirilmeSayisi = await _userManager.GetAccessFailedCountAsync(await _userManager.FindByNameAsync(model.UserName));//Kullanıcıyı bulup yanlış girilme sayısını gösterdik
+
+                    var lockOutSuresi = await _userManager.GetLockoutEndDateAsync(await _userManager.FindByNameAsync(model.UserName)); //Kişinin lock out süresini elde ettik
+                    var date = lockOutSuresi.Value.Minute - DateTime.Now.Minute;
+
+                    ModelState.AddModelError("", $"{3-yanlisGirilmeSayisi} Kere yanlış girdiğiniz için hesabınız {date} dakika boyunca  kitlenmiştir");
+                    return View("Index", model);
+                }
 
                 if (result.Succeeded)
                 {
@@ -43,7 +54,7 @@ namespace IdentityTraining.Controllers
                 }
                 ModelState.AddModelError("","Kullanıcı adı veya şifre hatalı");
             }
-            return RedirectToAction("Index",model);
+            return View("Index",model);
         }
 
         public IActionResult Register()

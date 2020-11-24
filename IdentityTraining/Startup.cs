@@ -28,10 +28,12 @@ namespace IdentityTraining
                 opt.Password.RequiredLength = 1;//Karakter sayýsýný düþürdük
                 opt.Password.RequireNonAlphanumeric = false;//özel karakter zorunluluðu kaldýrýldý
                 opt.Password.RequireUppercase = false;
+                opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);//Belli bir sayýda yanlýþ girilme durumunda 10 dakikalýðýna kiþiyi kitliyoruz
+                opt.Lockout.MaxFailedAccessAttempts = 3;//3 kere yanlýþ giriþ yapýlýrsa lockOut durumuna düþer
 
             }).AddEntityFrameworkStores<IdentityContext>();
 
-            services.ConfigureApplicationCookie(opt=> 
+            services.ConfigureApplicationCookie(opt =>
             {
                 opt.Cookie.HttpOnly = true;//JS Cookie bilgilerine ulaþamaz
                 opt.Cookie.Name = "MyCookie";
