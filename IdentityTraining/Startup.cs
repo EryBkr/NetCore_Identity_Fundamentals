@@ -16,6 +16,7 @@ namespace IdentityTraining
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews(); //MVC yapýsý Eklendi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,13 +28,11 @@ namespace IdentityTraining
             }
 
             app.UseRouting();
+            app.UseStaticFiles();//wwwroot klasörünü dýþarýya açtýk
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapDefaultControllerRoute();//Default url þemasýný kullandýk
             });
         }
     }

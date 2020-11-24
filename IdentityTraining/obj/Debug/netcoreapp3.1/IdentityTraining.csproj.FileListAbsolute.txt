@@ -54,3 +54,15 @@ C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTrain
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\IdentityTraining.deps.json
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\IdentityTraining.runtimeconfig.json
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\IdentityTraining.runtimeconfig.dev.json
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\IdentityTraining.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\IdentityTraining.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.csproj.CoreCompileInputs.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.genruntimeconfig.cache
