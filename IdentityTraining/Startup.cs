@@ -36,6 +36,7 @@ namespace IdentityTraining
 
             services.ConfigureApplicationCookie(opt =>
             {
+                opt.LoginPath = new PathString("/Home/Index");//Giriþ için yönlendirme yaptýðýmýz sayfayý belirledik default deðeri Account/login 'dir
                 opt.Cookie.HttpOnly = true;//JS Cookie bilgilerine ulaþamaz
                 opt.Cookie.Name = "MyCookie";
                 opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;//Http ya Https üzerinden çalýþýr
@@ -53,6 +54,9 @@ namespace IdentityTraining
 
             app.UseRouting();
             app.UseStaticFiles();//wwwroot klasörünü dýþarýya açtýk
+            app.UseAuthentication();//Giriþ yapmýþ ve giriþ yapmamýþ kullanýcýlarý ayýrdýk
+            app.UseAuthorization();//Yetkilendirme iþlemlerini kullanmak için ekledik
+            
 
             app.UseEndpoints(endpoints =>
             {
