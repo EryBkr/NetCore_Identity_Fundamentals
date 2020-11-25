@@ -32,7 +32,7 @@ namespace IdentityTraining
                 opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);//Belli bir sayýda yanlýþ girilme durumunda 10 dakikalýðýna kiþiyi kitliyoruz
                 opt.Lockout.MaxFailedAccessAttempts = 3;//3 kere yanlýþ giriþ yapýlýrsa lockOut durumuna düþer
 
-            }).AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<IdentityContext>();//Custom Identity hatalarýmýzý görüntülemek için konfigürasyona ekledik
+            }).AddErrorDescriber<CustomIdentityValidator>().AddPasswordValidator<CustomPasswordValidator>().AddEntityFrameworkStores<IdentityContext>();//Custom Identity hatalarýmýzý görüntülemek için ve Parola validasyonu için konfigürasyon sýnýflarýný ekledik
 
             services.ConfigureApplicationCookie(opt =>
             {
