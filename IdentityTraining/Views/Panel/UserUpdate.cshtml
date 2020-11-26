@@ -1,0 +1,50 @@
+﻿@model UserUpdateViewModel
+@{
+    ViewData["Title"] = "UserUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User Update</h1>
+
+<form class="w-75 mx-auto p-3" asp-action="UserUpdate" asp-controller="Panel" method="post" enctype="multipart/form-data"> @*Resim gönderebilmemiz için gerekli*@
+
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <span asp-validation-for="UserName"></span>
+        <input asp-for="UserName" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <span asp-validation-for="Email"></span>
+        <input asp-for="Email" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone"></label>
+        <span asp-validation-for="Phone"></span>
+        <input asp-for="Phone" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PictureUrl"></label>
+        <span asp-validation-for="PictureUrl"></span>
+        <input asp-for="PictureUrl" />
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Picture"></label>
+                <img src="~/img/@Model.Picture" alt="@Model.UserName" class="w-100 img-fluid"/>
+            </div>
+            <div class="col-md-8">
+                <input type="file" asp-for="@Model.Picture"/>
+            </div>
+
+        </div>
+     
+    </div>
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <button class="btn btn-success" type="submit">Kaydet</button>
+</form>

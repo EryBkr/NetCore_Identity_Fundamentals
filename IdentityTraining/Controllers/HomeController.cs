@@ -50,7 +50,7 @@ namespace IdentityTraining.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index","Panel");
+                    return RedirectToAction("Index","Panel"); //Giriş işlemi doğru ise bu sayfaya yönlendir
                 }
                 ModelState.AddModelError("","Kullanıcı adı veya şifre hatalı");
             }
