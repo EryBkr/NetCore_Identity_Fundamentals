@@ -31,6 +31,7 @@ namespace IdentityTraining
                 opt.Password.RequireUppercase = false;
                 opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);//Belli bir sayýda yanlýþ girilme durumunda 10 dakikalýðýna kiþiyi kitliyoruz
                 opt.Lockout.MaxFailedAccessAttempts = 3;//3 kere yanlýþ giriþ yapýlýrsa lockOut durumuna düþer
+                //opt.SignIn.RequireConfirmedEmail = true; //Bu ayar kullanýcýnýn mail doðrulamasý yapmasý gerektiðini tanýmlar
 
             }).AddErrorDescriber<CustomIdentityValidator>().AddPasswordValidator<CustomPasswordValidator>().AddEntityFrameworkStores<IdentityContext>();//Custom Identity hatalarýmýzý görüntülemek için ve Parola validasyonu için konfigürasyon sýnýflarýný ekledik
 

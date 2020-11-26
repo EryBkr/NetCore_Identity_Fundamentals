@@ -48,6 +48,13 @@ namespace IdentityTraining.Controllers
                     return View("Index", model);
                 }
 
+                if (result.IsNotAllowed) //Mail doğrulaması yapılmamış mı?
+                {
+                    ModelState.AddModelError("", "Email Adresinizi lütfen doğrulayınız");
+                    return View("Index", model);
+                }
+
+
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index","Panel"); //Giriş işlemi doğru ise bu sayfaya yönlendir
@@ -76,6 +83,7 @@ namespace IdentityTraining.Controllers
                 var result=await _userManager.CreateAsync(appUser,model.Password); //Kullanıcı kayıt işlemi
                 if (result.Succeeded)
                 {
+                    //Mail Gönderme İşlemi yapılır IsNotAllowed kontrolü yapılacaksa
                     return RedirectToAction("Index");
                 }
                 foreach (var error in result.Errors)
