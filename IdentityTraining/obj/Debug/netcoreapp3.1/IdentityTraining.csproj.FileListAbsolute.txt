@@ -153,3 +153,4 @@ C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTrain
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.pdb
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.genruntimeconfig.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Role\Index.cshtml.g.cs
