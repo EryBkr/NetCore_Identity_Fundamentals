@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityTraining.Controllers
 {
+    [AutoValidateAntiforgeryToken] //Bütün post metotları token ile doğrulanacak
     public class HomeController : Controller
     {
         //Identity kütüphanesine ait , veritabanına erişmek için kullandığımız bir classtır
@@ -31,6 +32,7 @@ namespace IdentityTraining.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken] //Form güvenliğini token ile sağlar
         public async Task<IActionResult> LogIn(SignInViewModel model)
         {
             if (ModelState.IsValid)
