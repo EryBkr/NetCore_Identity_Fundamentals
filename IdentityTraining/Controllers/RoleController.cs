@@ -78,5 +78,18 @@ namespace IdentityTraining.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> DeleteRole(int id) //Silme işlemi için Id aldık
+        {
+            var deletedRole = _roleManager.Roles.FirstOrDefault(i => i.Id == id);//Rolü aldık
+            var result=await _roleManager.DeleteAsync(deletedRole);//Rolü sildik
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            
+            return View();
+        }
+
     }
 }
