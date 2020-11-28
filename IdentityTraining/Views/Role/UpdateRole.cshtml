@@ -1,0 +1,16 @@
+﻿@model RoleUpdateViewModel
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="UpdateRole" method="post" class="w-75 p-3 mx-auto">
+    <input type="hidden" asp-for="Id" /> @*Id tutan gizli bir input oluşturduk*@
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <span asp-validation-for="Name"></span>
+        <input type="text" asp-for="Name" name="name" value="@Model.Name" />
+    </div>
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <button type="submit">Güncelle</button>
+</form>

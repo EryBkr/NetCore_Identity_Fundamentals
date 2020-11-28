@@ -36,7 +36,7 @@ namespace IdentityTraining.Controllers
         {
             if (ModelState.IsValid)
             {
-                var appRole = new AppRole() {Name=model.Name }; //App Role Entity si oluşturduk
+                var appRole = new AppRole() { Name = model.Name }; //App Role Entity si oluşturduk
                 var result = await _roleManager.CreateAsync(appRole); //Rolü oluşturuluyoruz
 
                 if (result.Succeeded) //Başarılıysa
@@ -46,10 +46,37 @@ namespace IdentityTraining.Controllers
 
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError("",error.Description); //Hataları modele ekleyip gönderdik
+                    ModelState.AddModelError("", error.Description); //Hataları modele ekleyip gönderdik
                 }
             }
             return View(model);
         }
+
+        public IActionResult UpdateRole(int id) //Güncelleme için Id aldık
+        {
+            var role = _roleManager.Roles.FirstOrDefault(i => i.Id == id); //Id ye ait rolü elde ettik
+            RoleUpdateViewModel model = new RoleUpdateViewModel { Id = role.Id, Name = role.Name };//Modele aktardık
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateRole(RoleUpdateViewModel model) //Güncellenecek değerleri aldık
+        {
+            var updatedModel = _roleManager.Roles.Where(i => i.Id == model.Id).FirstOrDefault(); //Rolü aldık
+            updatedModel.Name = model.Name;
+            var result=await _roleManager.UpdateAsync(updatedModel); //Rolü güncelledik
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError("",item.Description);
+            }
+            return View(model);
+        }
+
     }
 }

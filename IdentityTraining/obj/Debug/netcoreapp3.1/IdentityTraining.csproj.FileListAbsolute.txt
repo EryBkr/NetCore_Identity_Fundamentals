@@ -155,3 +155,4 @@ C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTrain
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.genruntimeconfig.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Role\Index.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Role\AddRole.cshtml.g.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Role\UpdateRole.cshtml.g.cs
