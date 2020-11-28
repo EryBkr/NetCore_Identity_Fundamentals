@@ -16,10 +16,12 @@ namespace IdentityTraining.Controllers
     public class PanelController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager; //Giriş çıkış işlemleri için ekledik
 
-        public PanelController(UserManager<AppUser> userManager)
+        public PanelController(UserManager<AppUser> userManager, SignInManager<AppUser> _signInManager)
         {
             _userManager = userManager;
+            this._signInManager = _signInManager;
         }
 
         public async Task<IActionResult> Index()
@@ -90,6 +92,14 @@ namespace IdentityTraining.Controllers
         public IActionResult AllAccessUser()
         {
             return View();
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync(); //Log out işlemini yapar
+
+            return RedirectToActionPermanent("Index","Home");
         }
     }
 }
