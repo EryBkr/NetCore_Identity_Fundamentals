@@ -157,3 +157,7 @@ C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTrain
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Role\UpdateRole.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Role\UserList.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Role\AssignRole.cshtml.g.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\IdentityTraining.csprojAssemblyReference.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Developer\Index.cshtml.g.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\Identity\IdentityTraining\IdentityTraining\obj\Debug\netcoreapp3.1\Razor\Views\Home\AccessDenied.cshtml.g.cs
