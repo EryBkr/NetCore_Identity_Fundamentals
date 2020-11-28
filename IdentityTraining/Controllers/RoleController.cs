@@ -107,6 +107,8 @@ namespace IdentityTraining.Controllers
 
             List<RoleAssignViewModel> models = new List<RoleAssignViewModel>();
 
+            TempData["UserId"] = user.Id; //User ID ataması yaptık
+
             foreach (var item in roles)
             {
                 var model = new RoleAssignViewModel();
@@ -116,6 +118,26 @@ namespace IdentityTraining.Controllers
                 models.Add(model);
             }
             return View(models);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(List<RoleAssignViewModel> models)
+        {
+            var userId = (int)TempData["UserId"]; //User id yi aldık
+            var user = _userManager.Users.FirstOrDefault(i => i.Id == userId); //Kullanıcıy aldık
+
+            foreach (var item in models)
+            {
+                if (item.Exist)
+                {
+                    await _userManager.AddToRoleAsync(user,item.Name); //Kullanıcıya rol ataması yaptık
+                }
+                else
+                {
+                    await _userManager.RemoveFromRoleAsync(user,item.Name); //Seçilmeyen rolleri kullanıcıdan çıkarttık
+                }
+            }  
+            return RedirectToAction("UserList");
         }
 
     }
