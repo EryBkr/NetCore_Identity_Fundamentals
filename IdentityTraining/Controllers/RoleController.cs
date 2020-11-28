@@ -14,10 +14,12 @@ namespace IdentityTraining.Controllers
     public class RoleController : Controller
     {
         private readonly RoleManager<AppRole> _roleManager;//Tıpkı user manager gibi role manager da role ile ilgili işlemleri yapar
+        private readonly UserManager<AppUser> _userManager;//User işlemleri için oluşturduk
 
-        public RoleController(RoleManager<AppRole> roleManager)
+        public RoleController(RoleManager<AppRole> roleManager,UserManager<AppUser> userManager) //Dependency 
         {
             _roleManager = roleManager;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -89,6 +91,31 @@ namespace IdentityTraining.Controllers
             }
             
             return View();
+        }
+
+        public IActionResult UserList()
+        {
+            var users = _userManager.Users.ToList(); //Kullanıcıları aldık
+            return View(users);
+        }
+
+        public async Task<IActionResult> AssignRole(int id)
+        {
+            var user = _userManager.Users.FirstOrDefault(i => i.Id == id); //Kullanıcıy aldık
+            var roles = _roleManager.Roles.ToList();//Tüm rolleri getirdik
+            var userRoles = await _userManager.GetRolesAsync(user); //Kullanıcının rollerini aldık
+
+            List<RoleAssignViewModel> models = new List<RoleAssignViewModel>();
+
+            foreach (var item in roles)
+            {
+                var model = new RoleAssignViewModel();
+                model.RoleId = item.Id;
+                model.Name = item.Name;
+                model.Exist = userRoles.Contains(item.Name); //Kullanıcı bu rolü içeriyor mu? Duruma göre boolean değere atama yapıyoruz
+                models.Add(model);
+            }
+            return View(models);
         }
 
     }
