@@ -44,6 +44,11 @@ namespace IdentityTraining
                 opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;//Http ya Https üzerinden çalýþýr
                 opt.ExpireTimeSpan = TimeSpan.FromDays(20); //Cookie kaç gün ayakta kalsýn
             });
+
+            services.AddAuthorization(opt=>  //Claim bazlý yetkilendirme
+            {
+                opt.AddPolicy("FemalePolicy",cnf=> { cnf.RequireClaim("gender", "female"); }); //Örneðin Cinsiyeti kadýn olanlar girebilsin
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
